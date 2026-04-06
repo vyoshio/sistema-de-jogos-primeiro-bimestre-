@@ -1,0 +1,291 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int opcao1;
+
+int main() {
+    srand(time(NULL));
+    printf("\nSeletor de Jogos\n");
+    while (1) {
+        printf("\nSelecione Um Jogo\n");
+        printf("pergunta e respostas - 1\n");
+        printf("cobra na caixa - 2\n");
+        printf("gousmas wars - 3\n");
+        printf("sair - 4\n");
+        scanf("%d", &opcao1);
+
+        if (opcao1 == 1) {
+            char resposta1, resposta2, resposta3, resposta4, resposta5;
+
+            printf("\nPerguntas e Respostas\n");
+            printf("1 - Em que pais fica a foz do rio Nilo?\n");
+            printf("a) Etiopia\n");
+            printf("b) Sudao\n");
+            printf("c) Egito\n");
+            printf("d) Uganda\n");
+            scanf(" %c", &resposta1);
+            if (resposta1 == 'a') {
+                printf("Resposta errada, resposta certa letra C, Egito\n");
+            } else if (resposta1 == 'b') {
+                printf("Resposta errada, resposta certa letra C, Egito\n");
+            } else if (resposta1 == 'c') {
+                printf("Resposta correta!\n");
+            } else if (resposta1 == 'd') {
+                printf("Resposta errada, resposta certa letra C, Egito\n");
+            } else {
+                printf("Opcao Invalida\n");
+            }
+
+            printf("\nPerguntas e Respostas\n");
+            printf("2 - Qual jogador da NBA tem mais titulos de MVP da temporada regular?\n");
+            printf("a) Michael Jordan\n");
+            printf("b) LeBron James\n");
+            printf("c) Kareem Abdul-Jabbar\n");
+            printf("d) Bill Russell\n");
+            scanf(" %c", &resposta2);
+            if (resposta2 == 'a') {
+                printf("Resposta errada, resposta certa letra C, Kareem Abdul-Jabbar\n");
+            } else if (resposta2 == 'b') {
+                printf("Resposta errada, resposta certa letra C, Kareem Abdul-Jabbar\n");
+            } else if (resposta2 == 'c') {
+                printf("Resposta correta!\n");
+            } else if (resposta2 == 'd') {
+                printf("Resposta errada, resposta certa letra C, Kareem Abdul-Jabbar\n");
+            } else {
+                printf("Opcao Invalida\n");
+            }
+
+            printf("\nPerguntas e Respostas\n");
+            printf("3 - Quantos ossos tem o corpo humano adulto?\n");
+            printf("a) 256\n");
+            printf("b) 180\n");
+            printf("c) 312\n");
+            printf("d) 206\n");
+            scanf(" %c", &resposta3);
+            if (resposta3 == 'a') {
+                printf("Resposta errada, resposta certa letra D, 206 ossos\n");
+            } else if (resposta3 == 'b') {
+                printf("Resposta errada, resposta certa letra D, 206 ossos\n");
+            } else if (resposta3 == 'c') {
+                printf("Resposta errada, resposta certa letra D, 206 ossos\n");
+            } else if (resposta3 == 'd') {
+                printf("Resposta correta!\n");
+            } else {
+                printf("Opcao Invalida\n");
+            }
+
+            printf("\nPerguntas e Respostas\n");
+            printf("4 - Qual e o elemento quimico mais abundante no universo?\n");
+            printf("a) Oxigenio\n");
+            printf("b) Carbono\n");
+            printf("c) Helio\n");
+            printf("d) Hidrogenio\n");
+            scanf(" %c", &resposta4);
+            if (resposta4 == 'a') {
+                printf("Resposta errada, resposta certa letra D, Hidrogenio\n");
+            } else if (resposta4 == 'b') {
+                printf("Resposta errada, resposta certa letra D, Hidrogenio\n");
+            } else if (resposta4 == 'c') {
+                printf("Resposta errada, resposta certa letra D, Hidrogenio\n");
+            } else if (resposta4 == 'd') {
+                printf("Resposta correta!\n");
+            } else {
+                printf("Opcao Invalida\n");
+            }
+
+            printf("\nPerguntas e Respostas\n");
+            printf("5 - Em que ano foi fundada a cidade de Belem do Para?\n");
+            printf("a) 1532\n");
+            printf("b) 1616\n");
+            printf("c) 1654\n");
+            printf("d) 1700\n");
+            scanf(" %c", &resposta5);
+            if (resposta5 == 'a') {
+                printf("Resposta errada, resposta certa letra B, 1616\n");
+            } else if (resposta5 == 'b') {
+                printf("Resposta correta!\n");
+            } else if (resposta5 == 'c') {
+                printf("Resposta errada, resposta certa letra B, 1616\n");
+            } else if (resposta5 == 'd') {
+                printf("Resposta errada, resposta certa letra B, 1616\n");
+            } else {
+                printf("Opcao Invalida\n");
+            }
+
+        } else if (opcao1 == 2) {
+            char menu;
+            char personagem1[50], personagem2[50];
+            int caixaescolhida, caixacobra, caixabotao, turno;
+
+            turno = rand() % 2;
+
+            printf("voce escolheu cobra na caixa\n");
+            printf("o jogo e sobre voce escolher uma caixa\n");
+            printf("caso apareca uma cobra voce perde\n");
+            printf("se aparecer o botao voce ganha\n");
+
+            printf("escolha 2 personagens\n");
+            printf("1- Adisson\n");
+            printf("2- Lucas\n");
+            printf("3- Matheus\n");
+            printf("4- Alice\n");
+            printf("5- Sophia\n");
+            printf("6- Gabriel\n");
+            printf("7- Isabella\n");
+            printf("8- Rafael\n");
+            printf("escolha o personagem do jogador 1\n");
+            scanf(" %s", personagem1);
+            printf("escolha o personagem do jogador 2\n");
+            scanf(" %s", personagem2);
+            printf("os personagens escolhidos foram %s e %s\n", personagem1, personagem2);
+
+            do {
+                while (1) {
+                    do {
+                        caixabotao = rand() % 5 + 1;
+                        caixacobra = rand() % 5 + 1;
+                    } while (caixabotao == caixacobra);
+
+                    printf("%s, escolha uma caixa de 1 a 5\n", turno == 0 ? personagem1 : personagem2);
+                    scanf("%d", &caixaescolhida);
+
+                    if (caixaescolhida < 1 || caixaescolhida > 5) {
+                        printf("Opcao Invalida. Escolha uma caixa de 1 a 5.\n");
+                        continue;
+                    }
+                    if (caixaescolhida == caixacobra) {
+                        printf("Voce escolheu a caixa %d e perdeu! A cobra estava na caixa %d.\n", caixaescolhida, caixacobra);
+                        break;
+                    } else if (caixaescolhida == caixabotao) {
+                        printf("Voce escolheu a caixa %d e ganhou! O botao estava na caixa %d.\n", caixaescolhida, caixabotao);
+                        break;
+                    } else {
+                        printf("Voce escolheu a caixa %d e nao aconteceu nada. Tente novamente\n", caixaescolhida);
+                    }
+                    turno = 1 - turno;
+                }
+                printf("Deseja jogar novamente? (s/n)\n");
+                scanf(" %c", &menu);
+            } while (menu == 's' || menu == 'S');
+
+        } else if (opcao1 == 3) {
+
+            char menu;
+
+            do {
+                int j1[2] = {1, 1};
+                int j2[2] = {1, 1};
+                int q1 = 2, q2 = 2;
+                int turno = 0;
+                int escolha, origem, alvo;
+
+                while (q1 > 0 && q2 > 0) {
+                    printf("\nJogador %d\n", turno + 1);
+
+                    int i;
+                    printf("Gousmas J1: ");
+                    for (i = 0; i < q1; i++) printf("[%d]=%d ", i+1, j1[i]);
+                    printf("\n");
+                    printf("Gousmas J2: ");
+                    for (i = 0; i < q2; i++) printf("[%d]=%d ", i+1, j2[i]);
+                    printf("\n");
+
+                    printf("1 - Atacar\n");
+                    printf("2 - Dividir\n");
+                    printf("Escolha: ");
+                    scanf("%d", &escolha);
+
+                    if (escolha == 1) {
+                        printf("Escolha origem: ");
+                        scanf("%d", &origem);
+                        printf("Escolha alvo: ");
+                        scanf("%d", &alvo);
+                        origem--;
+                        alvo--;
+
+                        if (turno == 0) {
+                            if (origem < 0 || origem >= q1 || alvo < 0 || alvo >= q2) {
+                                printf("Escolha invalida!\n");
+                                continue;
+                            }
+                            int dano = j1[origem];
+                            printf("Dano causado: %d\n", dano);
+                            j2[alvo] += dano;
+                            if (j2[alvo] > 5) {
+                                printf("Gousma inimiga DESINTEGROU!\n");
+                                j2[alvo] = j2[q2 - 1];
+                                q2--;
+                            }
+                        } else {
+                            if (origem < 0 || origem >= q2 || alvo < 0 || alvo >= q1) {
+                                printf("Escolha invalida!\n");
+                                continue;
+                            }
+                            int dano = j2[origem];
+                            printf("Dano causado: %d\n", dano);
+                            j1[alvo] += dano;
+                            if (j1[alvo] > 5) {
+                                printf("Gousma inimiga DESINTEGROU!\n");
+                                j1[alvo] = j1[q1 - 1];
+                                q1--;
+                            }
+                        }
+
+                    } else if (escolha == 2) {
+
+                        if (turno == 0 && q1 < 2) {
+                            printf("Qual Gousma dividir: ");
+                            scanf("%d", &origem);
+                            origem--;
+                            if (origem < 0 || origem >= q1) { printf("Escolha invalida!\n"); continue; }
+                            int metade = j1[origem] / 2;
+                            if (metade == 0) { printf("Furia muito baixa!\n"); continue; }
+                            j1[origem] -= metade;
+                            j1[q1] = metade;
+                            q1++;
+                            printf("Dividiu! Nova Gousma com furia %d\n", metade);
+                        } else if (turno == 1 && q2 < 2) {
+                            printf("Qual Gousma dividir: ");
+                            scanf("%d", &origem);
+                            origem--;
+                            if (origem < 0 || origem >= q2) { printf("Escolha invalida!\n"); continue; }
+                            int metade = j2[origem] / 2;
+                            if (metade == 0) { printf("Furia muito baixa!\n"); continue; }
+                            j2[origem] -= metade;
+                            j2[q2] = metade;
+                            q2++;
+                            printf("Dividiu! Nova Gousma com furia %d\n", metade);
+                        } else {
+                            printf("Nao pode dividir!\n");
+                        }
+
+                    } else {
+                        printf("Opcao invalida!\n");
+                        continue;
+                    }
+
+                    turno = 1 - turno;
+                }
+
+                if (q1 == 0) {
+                    printf("\nJogador 2 venceu!\n");
+                } else {
+                    printf("\nJogador 1 venceu!\n");
+                }
+
+                printf("Deseja jogar novamente? (s/n)\n");
+                scanf(" %c", &menu);
+            } while (menu == 's' || menu == 'S');
+
+        } else if (opcao1 == 4) {
+            printf("Saindo...\n");
+            break;
+
+        } else {
+            printf("Opcao Invalida\n");
+        }
+    }
+
+    return 0;
+}
