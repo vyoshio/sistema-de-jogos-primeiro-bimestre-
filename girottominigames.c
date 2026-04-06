@@ -116,7 +116,11 @@ int main() {
         } else if (opcao1 == 2) {
             char menu;
             char personagem1[50], personagem2[50];
-            int caixaescolhida, caixacobra, caixabotao, turno;
+            int caixaescolhida, caixacobra, caixabotao, turno, modoJogo;
+
+            printf("1 - Jogador vs Jogador\n");
+            printf("2 - Jogador vs Maquina\n");
+            scanf("%d", &modoJogo);
 
             turno = rand() % 2;
 
@@ -136,8 +140,15 @@ int main() {
             printf("8- Rafael\n");
             printf("escolha o personagem do jogador 1\n");
             scanf(" %s", personagem1);
-            printf("escolha o personagem do jogador 2\n");
-            scanf(" %s", personagem2);
+
+            if (modoJogo == 2) {
+                printf("escolha o personagem do jogador 2\n");
+                scanf(" %s", personagem2);
+            } else {
+                printf("escolha o personagem da maquina\n");
+                scanf(" %s", personagem2);
+            }
+
             printf("os personagens escolhidos foram %s e %s\n", personagem1, personagem2);
 
             do {
@@ -147,21 +158,26 @@ int main() {
                         caixacobra = rand() % 5 + 1;
                     } while (caixabotao == caixacobra);
 
-                    printf("%s, escolha uma caixa de 1 a 5\n", turno == 0 ? personagem1 : personagem2);
-                    scanf("%d", &caixaescolhida);
-
-                    if (caixaescolhida < 1 || caixaescolhida > 5) {
-                        printf("Opcao Invalida. Escolha uma caixa de 1 a 5.\n");
-                        continue;
+                    if (modoJogo == 2 && turno == 1) {
+                        caixaescolhida = rand() % 5 + 1;
+                        printf("%s (maquina) escolheu a caixa %d\n", personagem2, caixaescolhida);
+                    } else {
+                        printf("%s, escolha uma caixa de 1 a 5\n", turno == 0 ? personagem1 : personagem2);
+                        scanf("%d", &caixaescolhida);
+                        if (caixaescolhida < 1 || caixaescolhida > 5) {
+                            printf("Opcao Invalida. Escolha uma caixa de 1 a 5.\n");
+                            continue;
+                        }
                     }
+
                     if (caixaescolhida == caixacobra) {
-                        printf("Voce escolheu a caixa %d e perdeu! A cobra estava na caixa %d.\n", caixaescolhida, caixacobra);
+                        printf("a caixa %d tinha a cobra! %s perdeu!\n", caixaescolhida, turno == 0 ? personagem1 : personagem2);
                         break;
                     } else if (caixaescolhida == caixabotao) {
-                        printf("Voce escolheu a caixa %d e ganhou! O botao estava na caixa %d.\n", caixaescolhida, caixabotao);
+                        printf("a caixa %d tinha o botao! %s ganhou!\n", caixaescolhida, turno == 0 ? personagem1 : personagem2);
                         break;
                     } else {
-                        printf("Voce escolheu a caixa %d e nao aconteceu nada. Tente novamente\n", caixaescolhida);
+                        printf("a caixa %d nao tinha nada. Tente novamente\n", caixaescolhida);
                     }
                     turno = 1 - turno;
                 }
@@ -170,8 +186,12 @@ int main() {
             } while (menu == 's' || menu == 'S');
 
         } else if (opcao1 == 3) {
-
             char menu;
+            int modoJogo;
+
+            printf("1 - Jogador vs Jogador\n");
+            printf("2 - Jogador vs Maquina\n");
+            scanf("%d", &modoJogo);
 
             do {
                 int j1[2] = {1, 1};
@@ -181,9 +201,8 @@ int main() {
                 int escolha, origem, alvo;
 
                 while (q1 > 0 && q2 > 0) {
-                    printf("\nJogador %d\n", turno + 1);
-
                     int i;
+                    printf("\nJogador %d\n", turno + 1);
                     printf("Gousmas J1: ");
                     for (i = 0; i < q1; i++) printf("[%d]=%d ", i+1, j1[i]);
                     printf("\n");
@@ -191,37 +210,14 @@ int main() {
                     for (i = 0; i < q2; i++) printf("[%d]=%d ", i+1, j2[i]);
                     printf("\n");
 
-                    printf("1 - Atacar\n");
-                    printf("2 - Dividir\n");
-                    printf("Escolha: ");
-                    scanf("%d", &escolha);
+                    if (modoJogo == 2 && turno == 1) {
+                        escolha = rand() % 2 + 1;
+                        printf("maquina escolheu: %d\n", escolha);
 
-                    if (escolha == 1) {
-                        printf("Escolha origem: ");
-                        scanf("%d", &origem);
-                        printf("Escolha alvo: ");
-                        scanf("%d", &alvo);
-                        origem--;
-                        alvo--;
-
-                        if (turno == 0) {
-                            if (origem < 0 || origem >= q1 || alvo < 0 || alvo >= q2) {
-                                printf("Escolha invalida!\n");
-                                continue;
-                            }
-                            int dano = j1[origem];
-                            printf("Dano causado: %d\n", dano);
-                            j2[alvo] += dano;
-                            if (j2[alvo] > 5) {
-                                printf("Gousma inimiga DESINTEGROU!\n");
-                                j2[alvo] = j2[q2 - 1];
-                                q2--;
-                            }
-                        } else {
-                            if (origem < 0 || origem >= q2 || alvo < 0 || alvo >= q1) {
-                                printf("Escolha invalida!\n");
-                                continue;
-                            }
+                        if (escolha == 1) {
+                            origem = rand() % q2;
+                            alvo = rand() % q1;
+                            printf("maquina ataca com gousma %d na gousma %d\n", origem+1, alvo+1);
                             int dano = j2[origem];
                             printf("Dano causado: %d\n", dano);
                             j1[alvo] += dano;
@@ -230,39 +226,105 @@ int main() {
                                 j1[alvo] = j1[q1 - 1];
                                 q1--;
                             }
-                        }
-
-                    } else if (escolha == 2) {
-
-                        if (turno == 0 && q1 < 2) {
-                            printf("Qual Gousma dividir: ");
-                            scanf("%d", &origem);
-                            origem--;
-                            if (origem < 0 || origem >= q1) { printf("Escolha invalida!\n"); continue; }
-                            int metade = j1[origem] / 2;
-                            if (metade == 0) { printf("Furia muito baixa!\n"); continue; }
-                            j1[origem] -= metade;
-                            j1[q1] = metade;
-                            q1++;
-                            printf("Dividiu! Nova Gousma com furia %d\n", metade);
-                        } else if (turno == 1 && q2 < 2) {
-                            printf("Qual Gousma dividir: ");
-                            scanf("%d", &origem);
-                            origem--;
-                            if (origem < 0 || origem >= q2) { printf("Escolha invalida!\n"); continue; }
-                            int metade = j2[origem] / 2;
-                            if (metade == 0) { printf("Furia muito baixa!\n"); continue; }
-                            j2[origem] -= metade;
-                            j2[q2] = metade;
-                            q2++;
-                            printf("Dividiu! Nova Gousma com furia %d\n", metade);
                         } else {
-                            printf("Nao pode dividir!\n");
+                            if (q2 < 2) {
+                                origem = rand() % q2;
+                                int metade = j2[origem] / 2;
+                                if (metade == 0) {
+                                    printf("maquina nao conseguiu dividir, furia baixa!\n");
+                                } else {
+                                    j2[origem] -= metade;
+                                    j2[q2] = metade;
+                                    q2++;
+                                    printf("maquina dividiu gousma %d! nova gousma com furia %d\n", origem+1, metade);
+                                }
+                            } else {
+                                origem = rand() % q2;
+                                alvo = rand() % q1;
+                                printf("maquina nao pode dividir, ataca com gousma %d na gousma %d\n", origem+1, alvo+1);
+                                int dano = j2[origem];
+                                printf("Dano causado: %d\n", dano);
+                                j1[alvo] += dano;
+                                if (j1[alvo] > 5) {
+                                    printf("Gousma inimiga DESINTEGROU!\n");
+                                    j1[alvo] = j1[q1 - 1];
+                                    q1--;
+                                }
+                            }
                         }
 
                     } else {
-                        printf("Opcao invalida!\n");
-                        continue;
+                        printf("1 - Atacar\n");
+                        printf("2 - Dividir\n");
+                        printf("Escolha: ");
+                        scanf("%d", &escolha);
+
+                        if (escolha == 1) {
+                            printf("Escolha origem: ");
+                            scanf("%d", &origem);
+                            printf("Escolha alvo: ");
+                            scanf("%d", &alvo);
+                            origem--;
+                            alvo--;
+
+                            if (turno == 0) {
+                                if (origem < 0 || origem >= q1 || alvo < 0 || alvo >= q2) {
+                                    printf("Escolha invalida!\n");
+                                    continue;
+                                }
+                                int dano = j1[origem];
+                                printf("Dano causado: %d\n", dano);
+                                j2[alvo] += dano;
+                                if (j2[alvo] > 5) {
+                                    printf("Gousma inimiga DESINTEGROU!\n");
+                                    j2[alvo] = j2[q2 - 1];
+                                    q2--;
+                                }
+                            } else {
+                                if (origem < 0 || origem >= q2 || alvo < 0 || alvo >= q1) {
+                                    printf("Escolha invalida!\n");
+                                    continue;
+                                }
+                                int dano = j2[origem];
+                                printf("Dano causado: %d\n", dano);
+                                j1[alvo] += dano;
+                                if (j1[alvo] > 5) {
+                                    printf("Gousma inimiga DESINTEGROU!\n");
+                                    j1[alvo] = j1[q1 - 1];
+                                    q1--;
+                                }
+                            }
+
+                        } else if (escolha == 2) {
+                            if (turno == 0 && q1 < 2) {
+                                printf("Qual Gousma dividir: ");
+                                scanf("%d", &origem);
+                                origem--;
+                                if (origem < 0 || origem >= q1) { printf("Escolha invalida!\n"); continue; }
+                                int metade = j1[origem] / 2;
+                                if (metade == 0) { printf("Furia muito baixa!\n"); continue; }
+                                j1[origem] -= metade;
+                                j1[q1] = metade;
+                                q1++;
+                                printf("Dividiu! Nova Gousma com furia %d\n", metade);
+                            } else if (turno == 1 && q2 < 2) {
+                                printf("Qual Gousma dividir: ");
+                                scanf("%d", &origem);
+                                origem--;
+                                if (origem < 0 || origem >= q2) { printf("Escolha invalida!\n"); continue; }
+                                int metade = j2[origem] / 2;
+                                if (metade == 0) { printf("Furia muito baixa!\n"); continue; }
+                                j2[origem] -= metade;
+                                j2[q2] = metade;
+                                q2++;
+                                printf("Dividiu! Nova Gousma com furia %d\n", metade);
+                            } else {
+                                printf("Nao pode dividir!\n");
+                            }
+                        } else {
+                            printf("Opcao invalida!\n");
+                            continue;
+                        }
                     }
 
                     turno = 1 - turno;
