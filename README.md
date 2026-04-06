@@ -6,43 +6,49 @@ Este projeto foi desenvolvido como **trabalho avaliativo** do curso de **Ciênci
 
 ---
 
-## 📌 Descrição
+## 👨‍💻 Autor
 
-O programa consiste em um sistema interativo em linguagem C que funciona como um **seletor de jogos no terminal**, permitindo ao usuário escolher entre diferentes minigames.
+**Victor Yoshio Yamada Pedrosa**  
+Aluno do curso de Ciência da Computação  
 
-O sistema permanece em execução até que o usuário opte por sair.
+---
+
+## 📌 Descrição do Projeto
+
+O presente projeto consiste no desenvolvimento de um **sistema interativo em linguagem C**, executado no terminal, que simula um **menu de seleção de jogos**.
+
+A proposta principal é permitir ao usuário escolher entre diferentes minigames, exercitando conceitos fundamentais de programação, como:
+
+- Entrada e saída de dados
+- Estruturas condicionais
+- Estruturas de repetição
+- Uso de vetores (arrays)
+- Geração de números aleatórios
+- Controle de fluxo
+
+O programa permanece em execução contínua por meio de um **loop infinito (`while`)**, até que o usuário selecione a opção de saída.
 
 ---
 
 ## 🎯 Objetivos do Projeto
 
-- Aplicar conceitos fundamentais da linguagem C
-- Desenvolver lógica de programação
-- Trabalhar com estruturas de controle
-- Utilizar geração de números aleatórios
-- Manipular vetores (arrays)
-- Criar interação com o usuário via terminal
+- Aplicar na prática os conceitos estudados na disciplina
+- Desenvolver raciocínio lógico e resolução de problemas
+- Simular um sistema interativo com múltiplas funcionalidades
+- Trabalhar com diferentes tipos de lógica dentro de um mesmo programa
 
 ---
 
-## ⚙️ Funcionalidades
+## ⚙️ Funcionamento Geral
 
-O sistema apresenta um menu com as seguintes opções:
+Ao iniciar o programa, o usuário visualiza um menu com as seguintes opções:
 
-1. **Perguntas e Respostas (Quiz)**
-2. **Cobra na Caixa**
-3. **Gousmas Wars**
-4. **Sair do programa**
+1. Perguntas e Respostas (Quiz)
+2. Cobra na Caixa
+3. Gousmas Wars
+4. Sair do programa
 
----
-
-## 🧠 Estrutura do Programa
-
-- Uso de `while(1)` para manter o menu em execução contínua
-- Estruturas condicionais (`if/else`) para controle de fluxo
-- Funções da biblioteca padrão (`stdio.h`, `stdlib.h`, `time.h`)
-- Uso de `rand()` para aleatoriedade
-- Manipulação de arrays no jogo Gousmas Wars
+Após selecionar uma opção, o sistema executa o jogo correspondente e, ao final, retorna ao menu principal.
 
 ---
 
@@ -50,42 +56,56 @@ O sistema apresenta um menu com as seguintes opções:
 
 ### 📝 1. Perguntas e Respostas
 
-Um quiz composto por 5 perguntas de múltipla escolha.
+Este jogo consiste em um quiz com 5 perguntas de múltipla escolha.
 
-**Características:**
-- Alternativas de **a até d**
-- Validação de respostas
-- Feedback imediato ao usuário
+**Funcionamento:**
+- O usuário escolhe uma alternativa (a, b, c ou d)
+- O programa verifica a resposta
+- É exibido um feedback informando se está correta ou incorreta
+
+**Objetivo:**
+Testar conhecimentos gerais do usuário.
 
 ---
 
 ### 🐍 2. Cobra na Caixa
 
-Jogo baseado em sorte e tomada de decisão.
+Um jogo baseado em sorte e tomada de decisão.
 
-**Regras:**
-- O jogador escolhe entre 5 caixas
-- Uma contém uma cobra (derrota)
-- Uma contém um botão (vitória)
-- As demais estão vazias
+**Funcionamento:**
+- O jogador escolhe uma caixa entre 5 opções
+- O sistema gera aleatoriamente:
+  - Uma caixa com cobra (derrota)
+  - Uma caixa com botão (vitória)
+- As demais caixas estão vazias
 
 **Modos disponíveis:**
 - Jogador vs Jogador
 - Jogador vs Máquina
 
+**Objetivo:**
+Escolher a caixa correta e evitar a derrota.
+
 ---
 
 ### ⚔️ 3. Gousmas Wars
 
-Jogo estratégico baseado em entidades chamadas “gousmas”.
+Um jogo estratégico baseado em entidades chamadas “gousmas”, cada uma com um valor de força.
 
-**Mecânicas:**
+**Funcionamento:**
 - Cada jogador inicia com 2 gousmas
-- Cada gousma possui um nível de “fúria”
+- O jogo ocorre em turnos alternados
+- O jogador pode escolher entre duas ações:
 
-**Ações possíveis:**
-- **Atacar:** causa dano à gousma adversária
-- **Dividir:** cria uma nova gousma dividindo a fúria
+#### 🔹 Atacar
+- Uma gousma ataca outra
+- O dano é somado ao valor da gousma adversária
+- Se o valor ultrapassar 5, a gousma é eliminada
 
-**Condição de vitória:**
-- Eliminar todas as gousmas do adversário
+#### 🔹 Dividir
+- Uma gousma pode ser dividida em duas
+- O valor é dividido entre elas
+- Permite criar novas estratégias
+
+**Objetivo:**
+Eliminar todas as gousmas do adversário.
