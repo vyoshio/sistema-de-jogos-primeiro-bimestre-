@@ -249,7 +249,7 @@ int main() {
                             printf("Dano causado: %d\n", dano);
                             j1[alvo] += dano;
                             if (j1[alvo] > 5) {
-                                printf("Gousma inimiga DESINTEGROU!\n");
+                                printf("Gousma inimiga desintegrou!\n");
                                 j1[alvo] = j1[q1 - 1];
                                 q1--;
                             }
@@ -273,7 +273,7 @@ int main() {
                                 printf("Dano causado: %d\n", dano);
                                 j1[alvo] += dano;
                                 if (j1[alvo] > 5) {
-                                    printf("Gousma inimiga DESINTEGROU!\n");
+                                    printf("Gousma inimiga desintegrou!\n");
                                     j1[alvo] = j1[q1 - 1];
                                     q1--;
                                 }
@@ -329,7 +329,7 @@ int main() {
                                 printf("Dano causado: %d\n", dano);
                                 j2[alvo] += dano;
                                 if (j2[alvo] > 5) {
-                                    printf("Gousma inimiga DESINTEGROU!\n");
+                                    printf("Gousma inimiga desintegrou!\n");
                                     j2[alvo] = j2[q2 - 1];
                                     q2--;
                                 }
@@ -338,7 +338,7 @@ int main() {
                                 printf("Dano causado: %d\n", dano);
                                 j1[alvo] += dano;
                                 if (j1[alvo] > 5) {
-                                    printf("Gousma inimiga DESINTEGROU!\n");
+                                    printf("Gousma inimiga desintegrou!\n");
                                     j1[alvo] = j1[q1 - 1];
                                     q1--;
                                 }
