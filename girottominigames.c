@@ -131,6 +131,7 @@ int main() {
                 printf("2 - Jogador vs Maquina\n");
                 if (scanf("%d", &modoJogo) != 1) {
                     scanf("%*s");
+                    modoJogo = -1;
                     printf("Opcao Invalida\n");
                 } else if (modoJogo < 1 || modoJogo > 2) {
                     printf("Opcao Invalida\n");
@@ -142,25 +143,16 @@ int main() {
             printf("voce escolheu cobra na caixa\n");
             printf("o jogo e sobre voce escolher uma caixa\n");
             printf("caso apareca uma cobra voce perde\n");
-            printf("se aparecer o botao voce ganha\n");
+            printf("se aparecer o botao voce ganha\n\n");
 
-            printf("escolha 2 personagens\n");
-            printf("Adisson\n");
-            printf("Lucas\n");
-            printf("Matheus\n");
-            printf("Alice\n");
-            printf("Sophia\n");
-            printf("Pilera\n");
-            printf("Isabella\n");
-            printf("Rafael\n");
-            printf("escolha o personagem do jogador 1\n");
+            printf("escolha o nome do personagem do jogador 1\n");
             scanf(" %s", personagem1);
 
-            if (modoJogo == 2) {
-                printf("escolha o personagem do jogador 2\n");
+            if (modoJogo == 1) {
+                printf("escolha o nome do personagem do jogador 2\n");
                 scanf(" %s", personagem2);
             } else {
-                printf("escolha o personagem da maquina\n");
+                printf("escolha o nome do personagem da maquina\n");
                 scanf(" %s", personagem2);
             }
 
@@ -177,12 +169,16 @@ int main() {
                         caixaescolhida = rand() % 5 + 1;
                         printf("%s (maquina) escolheu a caixa %d\n", personagem2, caixaescolhida);
                     } else {
-                        printf("%s, escolha uma caixa de 1 a 5\n", turno == 0 ? personagem1 : personagem2);
-                        scanf("%d", &caixaescolhida);
-                        if (caixaescolhida < 1 || caixaescolhida > 5) {
-                            printf("Opcao Invalida. Escolha uma caixa de 1 a 5.\n");
-                            continue;
-                        }
+                        do {
+                            printf("%s, escolha uma caixa de 1 a 5\n", turno == 0 ? personagem1 : personagem2);
+                            if (scanf("%d", &caixaescolhida) != 1) {
+                                scanf("%*s");
+                                caixaescolhida = -1;
+                                printf("Opcao Invalida. Escolha uma caixa de 1 a 5.\n");
+                            } else if (caixaescolhida < 1 || caixaescolhida > 5) {
+                                printf("Opcao Invalida. Escolha uma caixa de 1 a 5.\n");
+                            }
+                        } while (caixaescolhida < 1 || caixaescolhida > 5);
                     }
 
                     if (caixaescolhida == caixacobra) {
@@ -214,6 +210,7 @@ int main() {
                 printf("2 - Jogador vs Maquina\n");
                 if (scanf("%d", &modoJogo) != 1) {
                     scanf("%*s");
+                    modoJogo = -1;
                     printf("Opcao Invalida\n");
                 } else if (modoJogo < 1 || modoJogo > 2) {
                     printf("Opcao Invalida\n");
@@ -287,6 +284,7 @@ int main() {
                             printf("Escolha: ");
                             if (scanf("%d", &escolha) != 1) {
                                 scanf("%*s");
+                                escolha = -1;
                                 printf("Opcao Invalida\n");
                             } else if (escolha < 1 || escolha > 2) {
                                 printf("Opcao Invalida\n");
