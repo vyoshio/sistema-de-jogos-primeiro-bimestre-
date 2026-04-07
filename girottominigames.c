@@ -24,102 +24,114 @@ int main() {
         }
 
         if (opcao1 == 1) {
-            char resposta1, resposta2, resposta3, resposta4, resposta5;
+            char menu;
+            do {
+                char resposta1, resposta2, resposta3, resposta4, resposta5;
 
-            printf("\nPerguntas e Respostas\n");
-            printf("1 - Em que pais fica a foz do rio Nilo?\n");
-            printf("a) Etiopia\n");
-            printf("b) Sudao\n");
-            printf("c) Egito\n");
-            printf("d) Uganda\n");
-            scanf(" %c", &resposta1);
-            if (resposta1 == 'a') {
-                printf("Resposta errada, resposta certa letra C, Egito\n");
-            } else if (resposta1 == 'b') {
-                printf("Resposta errada, resposta certa letra C, Egito\n");
-            } else if (resposta1 == 'c') {
-                printf("Resposta correta!\n");
-            } else if (resposta1 == 'd') {
-                printf("Resposta errada, resposta certa letra C, Egito\n");
-            } else {
-                printf("Opcao Invalida\n");
-            }
+                printf("\nPerguntas e Respostas\n");
+                printf("1 - Em que pais fica a foz do rio Nilo?\n");
+                printf("a) Etiopia\n");
+                printf("b) Sudao\n");
+                printf("c) Egito\n");
+                printf("d) Uganda\n");
+                do {
+                    scanf(" %c", &resposta1);
+                    resposta1 = resposta1 >= 'A' && resposta1 <= 'Z' ? resposta1 + 32 : resposta1;
+                    if (resposta1 != 'a' && resposta1 != 'b' && resposta1 != 'c' && resposta1 != 'd') {
+                        printf("Opcao Invalida\n");
+                    }
+                } while (resposta1 != 'a' && resposta1 != 'b' && resposta1 != 'c' && resposta1 != 'd');
+                if (resposta1 == 'c') {
+                    printf("Resposta correta!\n");
+                } else {
+                    printf("Resposta errada, resposta certa letra C, Egito\n");
+                }
 
-            printf("\nPerguntas e Respostas\n");
-            printf("2 - Qual jogador da NBA tem mais titulos de MVP da temporada regular?\n");
-            printf("a) Michael Jordan\n");
-            printf("b) LeBron James\n");
-            printf("c) Kareem Abdul-Jabbar\n");
-            printf("d) Bill Russell\n");
-            scanf(" %c", &resposta2);
-            if (resposta2 == 'a') {
-                printf("Resposta errada, resposta certa letra C, Kareem Abdul-Jabbar\n");
-            } else if (resposta2 == 'b') {
-                printf("Resposta errada, resposta certa letra C, Kareem Abdul-Jabbar\n");
-            } else if (resposta2 == 'c') {
-                printf("Resposta correta!\n");
-            } else if (resposta2 == 'd') {
-                printf("Resposta errada, resposta certa letra C, Kareem Abdul-Jabbar\n");
-            } else {
-                printf("Opcao Invalida\n");
-            }
+                printf("\nPerguntas e Respostas\n");
+                printf("2 - Qual jogador da NBA tem mais titulos de MVP da temporada regular?\n");
+                printf("a) Michael Jordan\n");
+                printf("b) LeBron James\n");
+                printf("c) Kareem Abdul-Jabbar\n");
+                printf("d) Bill Russell\n");
+                do {
+                    scanf(" %c", &resposta2);
+                    resposta2 = resposta2 >= 'A' && resposta2 <= 'Z' ? resposta2 + 32 : resposta2;
+                    if (resposta2 != 'a' && resposta2 != 'b' && resposta2 != 'c' && resposta2 != 'd') {
+                        printf("Opcao Invalida\n");
+                    }
+                } while (resposta2 != 'a' && resposta2 != 'b' && resposta2 != 'c' && resposta2 != 'd');
+                if (resposta2 == 'c') {
+                    printf("Resposta correta!\n");
+                } else {
+                    printf("Resposta errada, resposta certa letra C, Kareem Abdul-Jabbar\n");
+                }
 
-            printf("\nPerguntas e Respostas\n");
-            printf("3 - Quantos ossos tem o corpo humano adulto?\n");
-            printf("a) 256\n");
-            printf("b) 180\n");
-            printf("c) 312\n");
-            printf("d) 206\n");
-            scanf(" %c", &resposta3);
-            if (resposta3 == 'a') {
-                printf("Resposta errada, resposta certa letra D, 206 ossos\n");
-            } else if (resposta3 == 'b') {
-                printf("Resposta errada, resposta certa letra D, 206 ossos\n");
-            } else if (resposta3 == 'c') {
-                printf("Resposta errada, resposta certa letra D, 206 ossos\n");
-            } else if (resposta3 == 'd') {
-                printf("Resposta correta!\n");
-            } else {
-                printf("Opcao Invalida\n");
-            }
+                printf("\nPerguntas e Respostas\n");
+                printf("3 - Quantos ossos tem o corpo humano adulto?\n");
+                printf("a) 256\n");
+                printf("b) 180\n");
+                printf("c) 312\n");
+                printf("d) 206\n");
+                do {
+                    scanf(" %c", &resposta3);
+                    resposta3 = resposta3 >= 'A' && resposta3 <= 'Z' ? resposta3 + 32 : resposta3;
+                    if (resposta3 != 'a' && resposta3 != 'b' && resposta3 != 'c' && resposta3 != 'd') {
+                        printf("Opcao Invalida\n");
+                    }
+                } while (resposta3 != 'a' && resposta3 != 'b' && resposta3 != 'c' && resposta3 != 'd');
+                if (resposta3 == 'd') {
+                    printf("Resposta correta!\n");
+                } else {
+                    printf("Resposta errada, resposta certa letra D, 206 ossos\n");
+                }
 
-            printf("\nPerguntas e Respostas\n");
-            printf("4 - Qual e o elemento quimico mais abundante no universo?\n");
-            printf("a) Oxigenio\n");
-            printf("b) Carbono\n");
-            printf("c) Helio\n");
-            printf("d) Hidrogenio\n");
-            scanf(" %c", &resposta4);
-            if (resposta4 == 'a') {
-                printf("Resposta errada, resposta certa letra D, Hidrogenio\n");
-            } else if (resposta4 == 'b') {
-                printf("Resposta errada, resposta certa letra D, Hidrogenio\n");
-            } else if (resposta4 == 'c') {
-                printf("Resposta errada, resposta certa letra D, Hidrogenio\n");
-            } else if (resposta4 == 'd') {
-                printf("Resposta correta!\n");
-            } else {
-                printf("Opcao Invalida\n");
-            }
+                printf("\nPerguntas e Respostas\n");
+                printf("4 - Qual e o elemento quimico mais abundante no universo?\n");
+                printf("a) Oxigenio\n");
+                printf("b) Carbono\n");
+                printf("c) Helio\n");
+                printf("d) Hidrogenio\n");
+                do {
+                    scanf(" %c", &resposta4);
+                    resposta4 = resposta4 >= 'A' && resposta4 <= 'Z' ? resposta4 + 32 : resposta4;
+                    if (resposta4 != 'a' && resposta4 != 'b' && resposta4 != 'c' && resposta4 != 'd') {
+                        printf("Opcao Invalida\n");
+                    }
+                } while (resposta4 != 'a' && resposta4 != 'b' && resposta4 != 'c' && resposta4 != 'd');
+                if (resposta4 == 'd') {
+                    printf("Resposta correta!\n");
+                } else {
+                    printf("Resposta errada, resposta certa letra D, Hidrogenio\n");
+                }
 
-            printf("\nPerguntas e Respostas\n");
-            printf("5 - Em que ano foi fundada a cidade de Belem do Para?\n");
-            printf("a) 1532\n");
-            printf("b) 1616\n");
-            printf("c) 1654\n");
-            printf("d) 1700\n");
-            scanf(" %c", &resposta5);
-            if (resposta5 == 'a') {
-                printf("Resposta errada, resposta certa letra B, 1616\n");
-            } else if (resposta5 == 'b') {
-                printf("Resposta correta!\n");
-            } else if (resposta5 == 'c') {
-                printf("Resposta errada, resposta certa letra B, 1616\n");
-            } else if (resposta5 == 'd') {
-                printf("Resposta errada, resposta certa letra B, 1616\n");
-            } else {
-                printf("Opcao Invalida\n");
-            }
+                printf("\nPerguntas e Respostas\n");
+                printf("5 - Em que ano foi fundada a cidade de Belem do Para?\n");
+                printf("a) 1532\n");
+                printf("b) 1616\n");
+                printf("c) 1654\n");
+                printf("d) 1700\n");
+                do {
+                    scanf(" %c", &resposta5);
+                    resposta5 = resposta5 >= 'A' && resposta5 <= 'Z' ? resposta5 + 32 : resposta5;
+                    if (resposta5 != 'a' && resposta5 != 'b' && resposta5 != 'c' && resposta5 != 'd') {
+                        printf("Opcao Invalida\n");
+                    }
+                } while (resposta5 != 'a' && resposta5 != 'b' && resposta5 != 'c' && resposta5 != 'd');
+                if (resposta5 == 'b') {
+                    printf("Resposta correta!\n");
+                } else {
+                    printf("Resposta errada, resposta certa letra B, 1616\n");
+                }
+
+                do {
+                    printf("Deseja jogar novamente? (s/n)\n");
+                    scanf(" %c", &menu);
+                    if (menu != 's' && menu != 'S' && menu != 'n' && menu != 'N') {
+                        printf("Opcao Invalida\n");
+                    }
+                } while (menu != 's' && menu != 'S' && menu != 'n' && menu != 'N');
+
+            } while (menu == 's' || menu == 'S');
 
         } else if (opcao1 == 2) {
             char menu;
