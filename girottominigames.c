@@ -13,7 +13,15 @@ int main() {
         printf("cobra na caixa - 2\n");
         printf("gousmas wars - 3\n");
         printf("sair - 4\n");
-        scanf("%d", &opcao1);
+        if (scanf("%d", &opcao1) != 1) {
+            scanf("%*s");
+            printf("Opcao Invalida\n");
+            continue;
+        }
+        if (opcao1 < 1 || opcao1 > 4) {
+            printf("Opcao Invalida\n");
+            continue;
+        }
 
         if (opcao1 == 1) {
             char resposta1, resposta2, resposta3, resposta4, resposta5;
@@ -118,9 +126,16 @@ int main() {
             char personagem1[50], personagem2[50];
             int caixaescolhida, caixacobra, caixabotao, turno, modoJogo;
 
-            printf("1 - Jogador vs Jogador\n");
-            printf("2 - Jogador vs Maquina\n");
-            scanf("%d", &modoJogo);
+            do {
+                printf("1 - Jogador vs Jogador\n");
+                printf("2 - Jogador vs Maquina\n");
+                if (scanf("%d", &modoJogo) != 1) {
+                    scanf("%*s");
+                    printf("Opcao Invalida\n");
+                } else if (modoJogo < 1 || modoJogo > 2) {
+                    printf("Opcao Invalida\n");
+                }
+            } while (modoJogo < 1 || modoJogo > 2);
 
             turno = rand() % 2;
 
@@ -130,14 +145,14 @@ int main() {
             printf("se aparecer o botao voce ganha\n");
 
             printf("escolha 2 personagens\n");
-            printf("1- Adisson\n");
-            printf("2- Lucas\n");
-            printf("3- Matheus\n");
-            printf("4- Alice\n");
-            printf("5- Sophia\n");
-            printf("6- Gabriel\n");
-            printf("7- Isabella\n");
-            printf("8- Rafael\n");
+            printf("Adisson\n");
+            printf("Lucas\n");
+            printf("Matheus\n");
+            printf("Alice\n");
+            printf("Sophia\n");
+            printf("Pilera\n");
+            printf("Isabella\n");
+            printf("Rafael\n");
             printf("escolha o personagem do jogador 1\n");
             scanf(" %s", personagem1);
 
@@ -181,17 +196,29 @@ int main() {
                     }
                     turno = 1 - turno;
                 }
-                printf("Deseja jogar novamente? (s/n)\n");
-                scanf(" %c", &menu);
+                do {
+                    printf("Deseja jogar novamente? (s/n)\n");
+                    scanf(" %c", &menu);
+                    if (menu != 's' && menu != 'S' && menu != 'n' && menu != 'N') {
+                        printf("Opcao Invalida\n");
+                    }
+                } while (menu != 's' && menu != 'S' && menu != 'n' && menu != 'N');
             } while (menu == 's' || menu == 'S');
 
         } else if (opcao1 == 3) {
             char menu;
             int modoJogo;
 
-            printf("1 - Jogador vs Jogador\n");
-            printf("2 - Jogador vs Maquina\n");
-            scanf("%d", &modoJogo);
+            do {
+                printf("1 - Jogador vs Jogador\n");
+                printf("2 - Jogador vs Maquina\n");
+                if (scanf("%d", &modoJogo) != 1) {
+                    scanf("%*s");
+                    printf("Opcao Invalida\n");
+                } else if (modoJogo < 1 || modoJogo > 2) {
+                    printf("Opcao Invalida\n");
+                }
+            } while (modoJogo < 1 || modoJogo > 2);
 
             do {
                 int j1[2] = {1, 1};
@@ -254,24 +281,50 @@ int main() {
                         }
 
                     } else {
-                        printf("1 - Atacar\n");
-                        printf("2 - Dividir\n");
-                        printf("Escolha: ");
-                        scanf("%d", &escolha);
+                        do {
+                            printf("1 - Atacar\n");
+                            printf("2 - Dividir\n");
+                            printf("Escolha: ");
+                            if (scanf("%d", &escolha) != 1) {
+                                scanf("%*s");
+                                printf("Opcao Invalida\n");
+                            } else if (escolha < 1 || escolha > 2) {
+                                printf("Opcao Invalida\n");
+                            }
+                        } while (escolha < 1 || escolha > 2);
 
                         if (escolha == 1) {
-                            printf("Escolha origem: ");
-                            scanf("%d", &origem);
-                            printf("Escolha alvo: ");
-                            scanf("%d", &alvo);
-                            origem--;
-                            alvo--;
+                            do {
+                                printf("Escolha origem (1 ou 2): ");
+                                if (scanf("%d", &origem) != 1) {
+                                    scanf("%*s");
+                                    origem = -1;
+                                    printf("Opcao Invalida\n");
+                                } else {
+                                    origem--;
+                                    if (origem < 0 || origem >= (turno == 0 ? q1 : q2)) {
+                                        printf("Opcao Invalida\n");
+                                        origem = -1;
+                                    }
+                                }
+                            } while (origem < 0 || origem >= (turno == 0 ? q1 : q2));
+
+                            do {
+                                printf("Escolha alvo (1 ou 2): ");
+                                if (scanf("%d", &alvo) != 1) {
+                                    scanf("%*s");
+                                    alvo = -1;
+                                    printf("Opcao Invalida\n");
+                                } else {
+                                    alvo--;
+                                    if (alvo < 0 || alvo >= (turno == 0 ? q2 : q1)) {
+                                        printf("Opcao Invalida\n");
+                                        alvo = -1;
+                                    }
+                                }
+                            } while (alvo < 0 || alvo >= (turno == 0 ? q2 : q1));
 
                             if (turno == 0) {
-                                if (origem < 0 || origem >= q1 || alvo < 0 || alvo >= q2) {
-                                    printf("Escolha invalida!\n");
-                                    continue;
-                                }
                                 int dano = j1[origem];
                                 printf("Dano causado: %d\n", dano);
                                 j2[alvo] += dano;
@@ -281,10 +334,6 @@ int main() {
                                     q2--;
                                 }
                             } else {
-                                if (origem < 0 || origem >= q2 || alvo < 0 || alvo >= q1) {
-                                    printf("Escolha invalida!\n");
-                                    continue;
-                                }
                                 int dano = j2[origem];
                                 printf("Dano causado: %d\n", dano);
                                 j1[alvo] += dano;
@@ -297,33 +346,56 @@ int main() {
 
                         } else if (escolha == 2) {
                             if (turno == 0 && q1 < 2) {
-                                printf("Qual Gousma dividir: ");
-                                scanf("%d", &origem);
-                                origem--;
-                                if (origem < 0 || origem >= q1) { printf("Escolha invalida!\n"); continue; }
+                                do {
+                                    printf("Qual Gousma dividir (1 ou 2): ");
+                                    if (scanf("%d", &origem) != 1) {
+                                        scanf("%*s");
+                                        origem = -1;
+                                        printf("Opcao Invalida\n");
+                                    } else {
+                                        origem--;
+                                        if (origem < 0 || origem >= q1) {
+                                            printf("Opcao Invalida\n");
+                                            origem = -1;
+                                        }
+                                    }
+                                } while (origem < 0 || origem >= q1);
                                 int metade = j1[origem] / 2;
-                                if (metade == 0) { printf("Furia muito baixa!\n"); continue; }
-                                j1[origem] -= metade;
-                                j1[q1] = metade;
-                                q1++;
-                                printf("Dividiu! Nova Gousma com furia %d\n", metade);
+                                if (metade == 0) {
+                                    printf("Furia muito baixa!\n");
+                                } else {
+                                    j1[origem] -= metade;
+                                    j1[q1] = metade;
+                                    q1++;
+                                    printf("Dividiu! Nova Gousma com furia %d\n", metade);
+                                }
                             } else if (turno == 1 && q2 < 2) {
-                                printf("Qual Gousma dividir: ");
-                                scanf("%d", &origem);
-                                origem--;
-                                if (origem < 0 || origem >= q2) { printf("Escolha invalida!\n"); continue; }
+                                do {
+                                    printf("Qual Gousma dividir (1 ou 2): ");
+                                    if (scanf("%d", &origem) != 1) {
+                                        scanf("%*s");
+                                        origem = -1;
+                                        printf("Opcao Invalida\n");
+                                    } else {
+                                        origem--;
+                                        if (origem < 0 || origem >= q2) {
+                                            printf("Opcao Invalida\n");
+                                            origem = -1;
+                                        }
+                                    }
+                                } while (origem < 0 || origem >= q2);
                                 int metade = j2[origem] / 2;
-                                if (metade == 0) { printf("Furia muito baixa!\n"); continue; }
-                                j2[origem] -= metade;
-                                j2[q2] = metade;
-                                q2++;
-                                printf("Dividiu! Nova Gousma com furia %d\n", metade);
+                                if (metade == 0) {
+                                    printf("Furia muito baixa!\n");
+                                } else {
+                                    j2[origem] -= metade;
+                                    j2[q2] = metade;
+                                    q2++;
+                                    printf("Dividiu! Nova Gousma com furia %d\n", metade);
+                                }
                             } else {
                                 printf("Nao pode dividir!\n");
                             }
-                        } else {
-                            printf("Opcao invalida!\n");
-                            continue;
                         }
                     }
 
@@ -336,8 +408,14 @@ int main() {
                     printf("\nJogador 1 venceu!\n");
                 }
 
-                printf("Deseja jogar novamente? (s/n)\n");
-                scanf(" %c", &menu);
+                do {
+                    printf("Deseja jogar novamente? (s/n)\n");
+                    scanf(" %c", &menu);
+                    if (menu != 's' && menu != 'S' && menu != 'n' && menu != 'N') {
+                        printf("Opcao Invalida\n");
+                    }
+                } while (menu != 's' && menu != 'S' && menu != 'n' && menu != 'N');
+
             } while (menu == 's' || menu == 'S');
 
         } else if (opcao1 == 4) {
