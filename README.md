@@ -19,7 +19,7 @@ Trabalho avaliativo desenvolvido em linguagem C contendo três minijogos em modo
 
 ## Sobre o Projeto
 
-Trabalho avaliativo do primeiro bimestre da disciplina de **Algoritmos e Decodificação de Códigos** do curso de **Ciência da Computação** da **Faculdade CESUPA**.
+Trabalho avaliativo do primeiro bimestre da disciplina de **Algoritmo e Decodificação de Códigos** do curso de **Ciência da Computação** da **Faculdade CESUPA**.
 
 O programa funciona como um seletor de jogos no terminal, onde o usuário pode escolher entre três opções de jogos diferentes, jogar contra outro jogador ou contra a máquina, e repetir a partida quantas vezes quiser.
 
