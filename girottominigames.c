@@ -36,7 +36,8 @@ int main() {
                 printf("d) Uganda\n");
                 do {
                     scanf(" %c", &resposta1);
-                    resposta1 = resposta1 >= 'A' && resposta1 <= 'Z' ? resposta1 + 32 : resposta1;
+                    fflush (stdin);
+                    resposta1 = resposta1 >= 'A' && resposta1 <= 'E' ? resposta1 + 32 : resposta1;
                     if (resposta1 != 'a' && resposta1 != 'b' && resposta1 != 'c' && resposta1 != 'd') {
                         printf("Opcao Invalida\n");
                     }
@@ -55,7 +56,8 @@ int main() {
                 printf("d) Bill Russell\n");
                 do {
                     scanf(" %c", &resposta2);
-                    resposta2 = resposta2 >= 'A' && resposta2 <= 'Z' ? resposta2 + 32 : resposta2;
+                    fflush (stdin);
+                    resposta2 = resposta2 >= 'A' && resposta2 <= 'E' ? resposta2 + 32 : resposta2;
                     if (resposta2 != 'a' && resposta2 != 'b' && resposta2 != 'c' && resposta2 != 'd') {
                         printf("Opcao Invalida\n");
                     }
@@ -74,7 +76,8 @@ int main() {
                 printf("d) 206\n");
                 do {
                     scanf(" %c", &resposta3);
-                    resposta3 = resposta3 >= 'A' && resposta3 <= 'Z' ? resposta3 + 32 : resposta3;
+                    fflush (stdin);
+                    resposta3 = resposta3 >= 'A' && resposta3 <= 'E' ? resposta3 + 32 : resposta3;
                     if (resposta3 != 'a' && resposta3 != 'b' && resposta3 != 'c' && resposta3 != 'd') {
                         printf("Opcao Invalida\n");
                     }
@@ -93,7 +96,8 @@ int main() {
                 printf("d) Hidrogenio\n");
                 do {
                     scanf(" %c", &resposta4);
-                    resposta4 = resposta4 >= 'A' && resposta4 <= 'Z' ? resposta4 + 32 : resposta4;
+                    fflush (stdin);
+                    resposta4 = resposta4 >= 'A' && resposta4 <= 'E' ? resposta4 + 32 : resposta4;
                     if (resposta4 != 'a' && resposta4 != 'b' && resposta4 != 'c' && resposta4 != 'd') {
                         printf("Opcao Invalida\n");
                     }
@@ -112,7 +116,8 @@ int main() {
                 printf("d) 1700\n");
                 do {
                     scanf(" %c", &resposta5);
-                    resposta5 = resposta5 >= 'A' && resposta5 <= 'Z' ? resposta5 + 32 : resposta5;
+                    fflush (stdin);
+                    resposta5 = resposta5 >= 'A' && resposta5 <= 'E' ? resposta5 + 32 : resposta5;
                     if (resposta5 != 'a' && resposta5 != 'b' && resposta5 != 'c' && resposta5 != 'd') {
                         printf("Opcao Invalida\n");
                     }
